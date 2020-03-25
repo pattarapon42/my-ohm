@@ -3,7 +3,7 @@ import {Card, Input, Button, Table} from 'antd';
 import '../screen.css';
 import 'antd/dist/antd.css';
 import {range,abs,compile} from 'mathjs';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+
 import Plot from 'react-plotly.js';
 
 const InputStyle = {
@@ -108,7 +108,7 @@ class Onepoint extends Component {
                     onChange={this.handleChange}
                     >
                         <h2>f(x)</h2><Input size="large" name="fx" style={InputStyle}></Input>
-                        <h2>X<sub>0</sub></h2><Input size="large" name="x0" style={InputStyle}></Input>
+                        <h2>X<sub>0</sub></h2><Input size="large" name="x0" style={InputStyle}></Input><br/><br/>
                         <Button id="submit_button" onClick= {
                                 ()=>this.onepoint(parseFloat(this.state.x0))
                             }  

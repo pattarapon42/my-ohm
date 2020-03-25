@@ -111,7 +111,7 @@ class Newton extends Component {
                     onChange={this.handleChange}
                     >
                         <h2>f(x)</h2><Input size="large" name="fx" style={InputStyle}></Input>
-                        <h2>X<sub>0</sub></h2><Input size="large" name="x0" style={InputStyle}></Input>
+                        <h2>X<sub>0</sub></h2><Input size="large" name="x0" style={InputStyle}></Input><br/><br/>
                         <Button id="submit_button" onClick= {
                                 ()=>this.newton_raphson(parseFloat(this.state.x0))
                             }  
