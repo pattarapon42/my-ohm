@@ -69,7 +69,7 @@ class Backwardh extends Component {
     render() {
         return(
             <div style={{padding: "30px" }}>
-                <h2 style={{color: "black", fontWeight: "bold"}}>Backward Divided-Differences O(h)</h2>
+                <h2 style={{color: "#ffffff", fontWeight: "bold"}}>Backward Divided-Differences O(h)</h2>
                 <div style={{float:"left"}}>
                     <Card
                     bordered={true}

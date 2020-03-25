@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {Card, Input, Button, Table} from 'antd';
 import '../screen.css';
 import 'antd/dist/antd.css';
-import {range,abs,compile} from 'mathjs';
+import {abs,compile} from 'mathjs';
 
-import Plot from 'react-plotly.js';
+
 
 const InputStyle = {
     background: "#ffffff",
@@ -31,8 +31,8 @@ const columns = [
       dataIndex: "error"
     }
   ];
-  const xValues = range(-10, 10, 0.5).toArray();
-  var fx = " ";
+  
+  
 class Onepoint extends Component {
     
     constructor() {
@@ -41,13 +41,13 @@ class Onepoint extends Component {
             fx: "",
             x0: 0,
             showOutputCard: false,
-            showGraph: false
+            
         }
         this.handleChange = this.handleChange.bind(this);
         this.onepoint = this.onepoint.bind(this);
     }
     onepoint(xold) {
-        fx = this.state.fx;
+        
         var xnew = 0;
         var epsilon= parseFloat(0.000000);
         var n=0;
@@ -68,7 +68,7 @@ class Onepoint extends Component {
         this.createTable(data['x'], data['error']);
         this.setState({
             showOutputCard: true,
-            showGraph: true
+            
         })
 
         
@@ -99,8 +99,8 @@ class Onepoint extends Component {
     }
     render() {
         return(
-            <div style={{ background: "#FFFF", padding: "30px" }}>
-                <h2 style={{color: "black", fontWeight: "bold"}}>One Point Iteration</h2>
+            <div style={{padding: "30px" }}>
+                <h2 style={{color: "#ffffff", fontWeight: "bold"}}>One Point Iteration</h2>
                 <div>
                     <Card
                     bordered={true}
@@ -115,29 +115,7 @@ class Onepoint extends Component {
                         style={{background: "#413d3d", color: "white", fontSize: "10px"}}>Submit</Button>
                         
                     </Card>
-                    {this.state.showGraph &&
-                        <Card
-                        title={"Graph"}
-                        bordered={true}
-                        style={{ width: 500,height: "75vmin",  border:"2px solid black", background: "#f44aaa6", color: "#FFFFFFFF", float:"left"}}
-                        >
-                            <Plot
-                                data={[
-                                {
-                                    x: range(-10, 10, 0.5).toArray(),
-                                    y: xValues.map(function (x) {
-                                        return compile(fx).eval({x: x})
-                                    }),
-                                    type: 'scatter',
-                                    marker: {color: 'red'},
-                                },
-                                ]}
-                                layout={ {title: 'A Fancy Plot'} }
-                                
-                                style={{width: "100%"}}
-                            />  
-                        </Card>                        
-                    }
+                    
                     {this.state.showOutputCard && 
                         <Card
                         title={"Output"}

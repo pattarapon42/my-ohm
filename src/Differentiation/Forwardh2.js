@@ -69,7 +69,7 @@ class Forwardh2 extends Component {
     render() {
         return(
             <div style={{padding: "30px" }}>
-                <h2 style={{color: "black", fontWeight: "bold"}}>Forward Divided-Differences O(h<sup>2</sup>)</h2>
+                <h2 style={{color: "#ffffff", fontWeight: "bold"}}>Forward Divided-Differences O(h<sup>2</sup>)</h2>
                 <div style={{float:"left"}}>
                     <Card
                     bordered={true}

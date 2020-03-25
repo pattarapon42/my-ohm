@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {Card, Input, Button, Table} from 'antd';
 import '../screen.css';
 import 'antd/dist/antd.css';
-import {range,abs,compile} from 'mathjs';
-import Plot from 'react-plotly.js';
+import {abs,compile} from 'mathjs';
+
 
 const InputStyle = {
     background: "#ffffff",
@@ -30,8 +30,7 @@ const columns = [
       dataIndex: "error"
     }
   ];
-  const xValues = range(-10, 10, 0.5).toArray();
-  var fx = " ";
+  
 class Secant extends Component {
     
     constructor() {
@@ -41,13 +40,13 @@ class Secant extends Component {
             x0: 0,
             x1: 0,
             showOutputCard: false,
-            showGraph: false
+            
         }
         this.handleChange = this.handleChange.bind(this);
         this.secant = this.secant.bind(this);
     }
     secant(x0, x1) {
-        fx = this.state.fx;
+       
         var x = [], y=0, epsilon = parseFloat(0.000000);
         var n=1, i=1;
         var data  = []
@@ -72,7 +71,7 @@ class Secant extends Component {
         this.createTable(data['y'], data['error']);
         this.setState({
             showOutputCard: true,
-            showGraph: true
+            
         })
 
         
@@ -103,8 +102,8 @@ class Secant extends Component {
     }
     render() {
         return(
-            <div style={{ background: "#FFFF", padding: "30px" }}>
-                <h2 style={{color: "black", fontWeight: "bold"}}>Secant Method</h2>
+            <div style={{ padding: "30px" }}>
+                <h2 style={{color: "#ffffff", fontWeight: "bold"}}>Secant Method</h2>
                 <div>
                     <Card
                     bordered={true}
@@ -120,29 +119,7 @@ class Secant extends Component {
                         style={{background: "#413d3d", color: "white", fontSize: "10px"}}>Submit</Button>
                         
                     </Card>
-                    {this.state.showGraph &&
-                        <Card
-                        title={"Graph"}
-                        bordered={true}
-                        style={{ width: 500,height: "75vmin",  border:"2px solid black", background: "#f44aaa6", color: "#FFFFFFFF", float:"left"}}
-                        >
-                            <Plot
-                                data={[
-                                {
-                                    x: range(-10, 10, 0.5).toArray(),
-                                    y: xValues.map(function (x) {
-                                        return compile(fx).eval({x: x})
-                                    }),
-                                    type: 'scatter',
-                                    marker: {color: 'red'},
-                                },
-                                ]}
-                                layout={ {title: 'A Fancy Plot'} }
-                                
-                                style={{width: "100%"}}
-                            />  
-                        </Card>                        
-                    }
+                    
                     {this.state.showOutputCard && 
                         <Card
                         title={"Output"}

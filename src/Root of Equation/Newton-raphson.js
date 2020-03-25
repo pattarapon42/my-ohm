@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {Card, Input, Button, Table} from 'antd';
 import '../screen.css';
 import 'antd/dist/antd.css';
-import {range,abs,compile,derivative} from 'mathjs';
-import Plot from 'react-plotly.js';
+import {abs,compile,derivative} from 'mathjs';
+
 
 const InputStyle = {
     background: "#ffffff",
@@ -30,8 +30,7 @@ const columns = [
       dataIndex: "error"
     }
 ];
-  const xValues = range(-10, 10, 0.5).toArray();
-  var fx = " ";
+  
 class Newton extends Component {
     
     constructor() {
@@ -40,14 +39,14 @@ class Newton extends Component {
             fx: "",
             x0: 0,
             showOutputCard: false,
-            showGraph: false
+            
         }
         this.handleChange = this.handleChange.bind(this);
         this.newton_raphson = this.newton_raphson.bind(this);
     }
 
     newton_raphson(xold) {
-        fx = this.state.fx;
+        
         var xnew = 0;
         var epsilon= parseFloat(0.000000);
         var n=0;
@@ -66,7 +65,7 @@ class Newton extends Component {
         this.createTable(data['x'], data['error']);
         this.setState({
             showOutputCard: true,
-            showGraph: true
+            
         })
 
         
@@ -102,8 +101,8 @@ class Newton extends Component {
     }
     render() {
         return(
-            <div style={{ background: "#FFFF", padding: "30px" }}>
-                <h2 style={{color: "black", fontWeight: "bold"}}>Newton Raphson</h2>
+            <div style={{ padding: "30px" }}>
+                <h2 style={{color: "#ffffff", fontWeight: "bold"}}>Newton Raphson</h2>
                 <div>
                     <Card
                     bordered={true}
@@ -118,29 +117,7 @@ class Newton extends Component {
                         style={{background: "#413d3d", color: "white", fontSize: "10px"}}>Submit</Button>
                         
                     </Card>
-                    {this.state.showGraph &&
-                        <Card
-                        title={"Graph"}
-                        bordered={true}
-                        style={{ width: 500,height: "75vmin",  border:"2px solid black", background: "#f44aaa6", color: "#FFFFFFFF", float:"left"}}
-                        >
-                            <Plot
-                                data={[
-                                {
-                                    x: range(-10, 10, 0.5).toArray(),
-                                    y: xValues.map(function (x) {
-                                        return compile(fx).eval({x: x})
-                                    }),
-                                    type: 'scatter',
-                                    marker: {color: 'red'},
-                                },
-                                ]}
-                                layout={ {title: 'A Fancy Plot'} }
-                                
-                                style={{width: "100%"}}
-                            />  
-                        </Card>                        
-                    }
+                    
                     {this.state.showOutputCard && 
                         <Card
                         title={"Output"}

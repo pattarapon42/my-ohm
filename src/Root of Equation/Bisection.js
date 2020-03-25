@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {Card, Input, Button, Table} from 'antd';
 import '../screen.css';
 import 'antd/dist/antd.css';
-import {range,abs,compile} from 'mathjs';
-import Plot from 'react-plotly.js';
+import {abs,compile} from 'mathjs';
+
 const InputStyle = {
     background: "#ffffff",
     color: "#000000", 
@@ -39,8 +39,7 @@ const columns = [
       dataIndex: "error"
     }
   ];
-const xValues = range(-10, 10, 0.5).toArray();
-var fx = " ";
+
 class Bisection extends Component {
     
     constructor() {
@@ -50,14 +49,14 @@ class Bisection extends Component {
             xl: 0,
             xr: 0,
             showOutputCard: false,
-            showGraph: false,
+            
             moveLeft: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.bisection = this.bisection.bind(this);
     }
     bisection(xl, xr) {
-        fx = this.state.fx;
+        
         var increaseFunction = false;
         var xm = 0;
         var sum= parseFloat(0.000000);
@@ -101,7 +100,7 @@ class Bisection extends Component {
         this.createTable(data['xl'], data['xr'], data['x'], data['error']);
         this.setState({
             showOutputCard: true,
-            showGraph: true
+            
         })
 
         
@@ -135,8 +134,8 @@ class Bisection extends Component {
     }
     render() {
         return(
-            <div style={{ background: "#FFFF", padding: "30px" }}>
-            <h2 style={{color: "black", fontWeight: "bold"}}>Bisection</h2>
+            <div style={{ padding: "30px" }}>
+            <h2 style={{color: "#ffffff", fontWeight: "bold"}}>Bisection</h2>
                 <div style={{float:"left"}}>
                     <Card
                     bordered={true}
@@ -153,28 +152,7 @@ class Bisection extends Component {
                         style={{background: "#413d3d", color: "white", fontSize: "10px"}}>Submit</Button>
                         
                     </Card>
-                    {this.state.showGraph &&
-                        <Card
-                        bordered={true}
-                        style={{ width: 500, height: "75vmin", border:"2px solid black", background: "#f44aaa6", color: "#FFFFFFFF", float:"left"}}
-                        >
-                            <Plot
-                                data={[
-                                {
-                                    x: range(-10, 10, 0.5).toArray(),
-                                    y: xValues.map(function (x) {
-                                        return compile(fx).eval({x: x})
-                                    }),
-                                    type: 'scatter',
-                                    marker: {color: 'red'},
-                                },
-                                ]}
-                                layout={ {title: 'A Fancy Plot'} }
-                                
-                                style={{width: "100%", float:"left", height: "370px"}}
-                            />  
-                        </Card>                        
-                    }
+                    
 
                     {this.state.showOutputCard && 
                         <Card

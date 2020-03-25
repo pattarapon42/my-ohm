@@ -69,7 +69,7 @@ class CentralH extends Component {
     render() {
         return(
             <div style={{padding: "30px" }}>
-                <h2 style={{color: "black", fontWeight: "bold"}}>Central Divided-Differences O(h<sup>2</sup>)</h2>
+                <h2 style={{color: "#ffffff", fontWeight: "bold"}}>Central Divided-Differences O(h<sup>2</sup>)</h2>
                 <div style={{float:"left"}}>
                     <Card
                     bordered={true}
