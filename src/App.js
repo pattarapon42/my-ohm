@@ -80,10 +80,10 @@ const { Content,Sider } = Layout;
                     >
                       <Menu.Item key="1"><CaretRightOutlined />Forwardh <Link to="/Forwardh" />  </Menu.Item>
                       <Menu.Item key="2"><CaretRightOutlined />Backwardh <Link to="/Backwardh" />  </Menu.Item>
-                      <Menu.Item key="3"><CaretRightOutlined />Centralh <Link to="/Centralh" />  </Menu.Item>
+                      <Menu.Item key="3"><CaretRightOutlined />Centralh2 <Link to="/Centralh" />  </Menu.Item>
                       <Menu.Item key="1"><CaretRightOutlined />Forwardh2 <Link to="/Forwardh2" />  </Menu.Item>
                       <Menu.Item key="4"><CaretRightOutlined />Backwardh2 <Link to="/Backwardh2" />  </Menu.Item>
-                      <Menu.Item key="3"><CaretRightOutlined />Centralh <Link to="/Centralh2" />  </Menu.Item>
+                      <Menu.Item key="3"><CaretRightOutlined />Centralh4 <Link to="/Centralh2" />  </Menu.Item>
                       
                     </SubMenu>
                   </Menu>

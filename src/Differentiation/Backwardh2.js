@@ -79,8 +79,8 @@ class Backwardh2 extends Component {
                     >
                         <h2>f(x)</h2><Input size="large" name="fx" style={InputStyle}></Input>
                         <h2>Order derivative</h2><Input size="large" name="degree" style={InputStyle}></Input>
-                        <h2>X</h2><Input size="large" name="x" style={InputStyle}></Input>
-                        <h2>H</h2><Input size="large" name="h" style={InputStyle}></Input><br/><br/>
+                        <h2>x</h2><Input size="large" name="x" style={InputStyle}></Input>
+                        <h2>h</h2><Input size="large" name="h" style={InputStyle}></Input><br/><br/>
                         <Button id="submit_button" onClick= {
                                 ()=>this.backwardh2(parseFloat(this.state.x), parseFloat(this.state.h), parseInt(this.state.degree))
                             }  
